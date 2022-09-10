@@ -1,0 +1,58 @@
+---
+title: 'MiniLab: COV proof'
+author: "Luis Mario Trevisi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MiniLab: COV proof}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem Statement:
+
+For the multinomial probability distribution, show that:
+$$ Cov(n_i,n_j) = - n p_i p_j $$
+
+## Proof:
+
+for simplicity, i will re-difine the variables as $i = 1$ and $j=2$ 
+
+From the derivation done in class to fine the covariance calculations we know that:
+
+$$ V(a y_1 + b y_2) = a^2 V( y_1) + b^2 V(y_2) + 2 a b COV(y_1,y_2)$$
+ 
+ Now we can re-arrange this to get:
+ 
+$$ COV(y_1,y_2) = \frac{V(ay_1+by_2)-a^2V(y_1)-b^2V(y_2)}{2ab}$$
+Now from the statement we know that $a= 1$ and $b =1$
+
+$$ COV(y_1,y_2) = \frac{V(y_1+y_2)-V(y_1)-V(y_2)}{2}$$
+In this case, the only unknown is $V(y_1+y_2)$ as $V(y_i) = np_i(1-p_i)$ for multinomials. To get this value, we would re-define the success and failure of the binomial by saying that we would consider a success if our simple event falls in group $y_1$ or $y_2$ and failure otherwise. Following this idea we can say that:
+
+probability of success: $p_1+p_2$
+
+Probability of failure: $1-p_1-p_2$
+
+$$ \therefore V(y_1+y_2) = n (p_1+p_2)(1-p_1-p_2) $$
+
+Now, by substituting this into the equation we get
+
+$$ COV(y_1,y_2) = \frac{n (p_1+p_2)*(1-p_1-p_2)-np_1(1-p_1)-np_2(1-p_2)}{2}$$
+
+
+$$ COV(y_1,y_2) = \frac{np_1-np_1^2-np_2p_1+np_2-np_2p_1-np_2^2-np_1+np_1^2-np_2+np_2^2}{2}$$
+
+Now, we can simplify this to:
+
+$$ COV(y_1,y_2) = \frac{-2np_1p_2}{2} = -np_1p_2$$
+
+Finally, bringing it back to the initial notation:
+
+$$ COV(y_i,y_j) = -np_ip_j$$
+
+

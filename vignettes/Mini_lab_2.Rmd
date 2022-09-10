@@ -1,0 +1,25 @@
+---
+title: "Binomial application to overbooking"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Binomial application to overbooking}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MATH5773FALLTREV0002)
+```
+
+
+```{r}
+ntickets(N=400,gamma=0.02,p=0.95)
+```
+
